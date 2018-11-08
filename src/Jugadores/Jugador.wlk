@@ -1,8 +1,11 @@
+import Escobas.mercadoDeEscobas.*
+
 class Jugador {
 	
 	var property peso
 	var property skills
 	var property escoba
+	var property equipo
 	
 	// Punto 1.A
 
@@ -17,10 +20,27 @@ class Jugador {
 	}
 	
 	// Punto 1.C
+	
 	method habilidad() {
 	  return self.velocidad() + self.skills() + self.habilidadPorPuesto()
 	}
 	
 	method habilidadPorPuesto()
+	
+	// Punto 2.A
+	
+	method lePasaElTrapo(otroJugador) {
+		return self.habilidad() > otroJugador.habilidad() * 2
+	}
+	
+	// Punto 2.B
+	
+	method esGroso() {
+		return self.esHabilidadGrosa() and mercadoDeEscobas.esVelocidadGrosa(self.velocidad())
+	}
+	
+	method esHabilidadGrosa() {
+		return self.habilidad() > self.equipo().habilidadPromedio()
+	}
 	
 }
