@@ -3,7 +3,6 @@ import Jugadores.Jugador.*
 class Cazador inherits Jugador {
 	
 	var property fuerza
-	var property reflejos
 
 	// Punto 1.C
 
@@ -19,7 +18,7 @@ class Cazador inherits Jugador {
 	
 	// Punto 4.A
 
-	method podesGolpearA(unJugador) {
+	method podesBloquearA(unJugador) {
 		return 1.randomUpTo(4) == 3
 	}
 

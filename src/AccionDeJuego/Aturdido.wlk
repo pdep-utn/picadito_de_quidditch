@@ -1,28 +1,18 @@
-class PersiguiendoSnitch {
+class Aturdido {
 	
-	var kilometrosRecorridos = 0
+	var turnosAturdido = 0
+	var estadoAnterior
 
-	// Punto 3
+	// Punto 5
 
 	method queJuegue(unBuscador) {
-		self.recorrer(unBuscador.velocidad() * 1.6)
-		self.intentarAtraparSnitch(unBuscador)
-  	}
-	
-	method recorrer(unosKilometros) {
-		kilometrosRecorridos += unosKilometros
-	}
-	
-	method intentarAtraparSnitch(unBuscador) {
-		if (kilometrosRecorridos >= 5000) {
-			unBuscador.atraparSnitch()
+		turnosAturdido++
+		if (turnosAturdido > 1) {
+			unBuscador.accionDeJuego(estadoAnterior)
 		}
   	}
-			
-	// Punto 4.B
 	
 	method esBlancoUtil() {
-		return 5000 - kilometrosRecorridos < 1000
+		return estadoAnterior.esBlancoUtil()
 	}
-
 }

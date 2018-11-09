@@ -4,6 +4,7 @@ class Jugador {
 	
 	var property peso
 	var property skills
+	var property reflejos
 	var property escoba
 	var property equipo
 	var property tieneLaQuaffle = false
@@ -73,7 +74,7 @@ class Jugador {
 
 	// Punto 4.C
 	
-	method sosGolpeadoPorUnaBludger() {
+	method sosGolpeadoPorUnaBludger(unEquipo) {
 		self.disminuirSkills(2)
 		self.escoba().recibirGolpe()
 	}

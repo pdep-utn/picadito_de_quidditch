@@ -29,7 +29,7 @@ class Cazador inherits Jugador {
 	
 	// Punto 4.A
 
-	method podesGolpearA(unJugador) {
+	method podesBloquearA(unJugador) {
 		return self.lePasaElTrapo(unJugador)
 	}
 	
@@ -41,9 +41,9 @@ class Cazador inherits Jugador {
 
 	// Punto 4.C 
 
-	override method sosGolpeadoPorUnaBludger() {
-		super()
-		self.perderQuaffle()
+	override method sosGolpeadoPorUnaBludger(unEquipo) {
+		super(unEquipo)
+		unEquipo.recuperarLaQuaffleDe(self)
 	}
 	
 }

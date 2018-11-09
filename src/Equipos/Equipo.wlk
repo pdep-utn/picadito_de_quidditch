@@ -46,19 +46,23 @@ class Equipo {
 		var bloqueador = self.bloqueadorPara(unCazador)
 		bloqueador.aumentarSkills(10)
 		unCazador.disminuirSkills(2)
-		unCazador.perderQuaffle()
-		self.jugadorMasRapido().agarrarQuaffle()
+		self.recuperarLaQuaffleDe(unCazador)
 	}
 	
 	method bloqueadorPara(unCazador) {
 		return jugadores.find { jugador => jugador.podesBloquearA(unCazador) }
 	}
 	
+	method recuperarLaQuaffleDe(unCazador) {
+		unCazador.perderQuaffle()
+		self.jugadorMasRapido().agarrarQuaffle()
+	}
+	
 	method jugadorMasRapido() {
 		return jugadores.max { jugador => jugador.velocidad() }
 	}
 	
-	method blancoUtilPara(unGolpeador) {
+	method blancoUtil() {
 		return jugadores.find { jugador => jugador.sosBlancoUtil() }
 	}
 	

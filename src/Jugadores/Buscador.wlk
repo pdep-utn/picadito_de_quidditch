@@ -1,10 +1,10 @@
 import Jugadores.Jugador.*
 import AccionDeJuego.BuscandoSnitch.*
 import AccionDeJuego.PersiguiendoSnitch.*
+import AccionDeJuego.Aturdido.*
 
 class Buscador inherits Jugador {
 	
-	var property reflejos
 	var property vision
 	var property accionDeJuego = new BuscandoSnitch()
 
@@ -34,7 +34,7 @@ class Buscador inherits Jugador {
 	
 	// Punto 4.A
 
-	method podesGolpearA(unJugador) {
+	method podesBloquearA(unJugador) {
 		return false
 	}
 
@@ -46,8 +46,8 @@ class Buscador inherits Jugador {
 
 	// Punto 4.C 
 
-	override method sosGolpeadoPorUnaBludger() {
-		super()
+	override method sosGolpeadoPorUnaBludger(unEquipo) {
+		super(unEquipo)
 		self.buscarLaSnitch()
 		
 		// Cambio que pide el punto 5
