@@ -1,6 +1,8 @@
 class Equipo {
 
 	var jugadores = []
+
+	var property marcador = 0 
 	
 	// Punto 2.B
 	
@@ -25,5 +27,45 @@ class Equipo {
 	method tePasaElTrapo(unJugador) {
 		return jugadores.all { jugador => unJugador.lePasaElTrapo(jugador) }
 	}
+
+	// Punto 3
 	
+	method jugarContra(otroEquipo) {
+		return jugadores.forEach { jugador => jugador.jugarContra(otroEquipo) }
+	}
+	
+	method aumentarMarcador(unosPuntos) {
+		marcador += unosPuntos
+	}
+	
+	method podesBloquearA(unCazador) {
+		return jugadores.any { jugador => jugador.podesBloquearA(unCazador) }
+	}
+	
+	method bloquearA(unCazador) {
+		var bloqueador = self.bloqueadorPara(unCazador)
+		bloqueador.aumentarSkills(10)
+		unCazador.disminuirSkills(2)
+		unCazador.perderQuaffle()
+		self.jugadorMasRapido().agarrarQuaffle()
+	}
+	
+	method bloqueadorPara(unCazador) {
+		return jugadores.find { jugador => jugador.podesBloquearA(unCazador) }
+	}
+	
+	method jugadorMasRapido() {
+		return jugadores.max { jugador => jugador.velocidad() }
+	}
+	
+	method blancoUtilPara(unGolpeador) {
+		return jugadores.find { jugador => jugador.sosBlancoUtil() }
+	}
+	
+	// Punto 4.B 
+
+	method tieneLaQuaffle() {
+		return jugadores.any { jugador => jugador.tieneLaQuaffle() }
+	}
+
 }

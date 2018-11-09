@@ -6,6 +6,7 @@ class Jugador {
 	var property skills
 	var property escoba
 	var property equipo
+	var property tieneLaQuaffle = false
 	
 	// Punto 1.A
 
@@ -41,6 +42,40 @@ class Jugador {
 	
 	method esHabilidadGrosa() {
 		return self.habilidad() > self.equipo().habilidadPromedio()
+	}
+	
+	// Punto 3
+	
+	method aumentarSkills(unaCantidad) {
+		skills += unaCantidad
+	}
+	
+	method disminuirSkills(unaCantidad) {
+		skills -= unaCantidad
+	}
+	
+	method perderQuaffle() {
+		tieneLaQuaffle = false
+	}
+
+	method agarrarQuaffle() {
+		tieneLaQuaffle = true
+	}
+	
+	method anotarPuntosYAumentarSkills(unosPuntos, unosSkills) {
+		self.anotar(unosPuntos)
+		self.aumentarSkills(unosSkills)
+	}
+	
+	method anotar(unosPuntos) {
+		self.equipo().aumentarMarcador(unosPuntos)
+	}
+
+	// Punto 4.C
+	
+	method sosGolpeadoPorUnaBludger() {
+		self.disminuirSkills(2)
+		self.escoba().recibirGolpe()
 	}
 	
 }

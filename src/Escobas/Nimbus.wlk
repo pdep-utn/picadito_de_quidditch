@@ -17,4 +17,10 @@ class Nimbus {
 	  return self.fechaFabricacion().year()
 	}
 	
+	// Punto 4.B
+	
+	method recibirGolpe() {
+		salud *= 0.1
+	}
+	
 }

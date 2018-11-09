@@ -11,4 +11,22 @@ class Cazador inherits Jugador {
 		return self.reflejos() * self.fuerza()
 	}
 	
+	// Punto 3
+
+	method jugarContra(unEquipo) {
+		// No hace nada
+	}
+	
+	// Punto 4.A
+
+	method podesGolpearA(unJugador) {
+		return 1.randomUpTo(4) == 3
+	}
+
+	// Punto 4.B 
+
+	method sosBlancoUtil() {
+		return not self.equipo().tieneLaQuaffle()
+	}
+
 }
